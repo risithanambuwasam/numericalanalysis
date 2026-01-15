@@ -1,0 +1,12 @@
+def sum_recursive(a, i, j):
+    if i > j:
+        return 0
+    elif i == j:
+        return a[i]
+    else:
+        m=(i+j)//2 
+    return sum_recursive(a, i, m) + sum_recursive(a, m+1, j)
+
+a = [1, 2, 3, 4, 5]
+result = sum_recursive(a, 0, len(a)-1)
+print(result)
