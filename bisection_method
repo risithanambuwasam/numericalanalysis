@@ -1,0 +1,24 @@
+def bisect(f, a, b, eps):
+    # Check that f(a) and f(b) have opposite signs
+    if f(a) * f(b) > 0:
+        return None  # fail
+
+    while abs(b - a) > eps:
+        m = (a + b) / 2
+
+        if f(m) == 0:
+            return m
+
+        if f(m) * f(a) > 0:
+            a = m
+        else:
+            b = m
+
+    return (a + b) / 2
+
+
+def f(x):
+    return x**3 - x - 2
+
+root = bisect(f, 1, 2, 1e-6)
+print(root)
